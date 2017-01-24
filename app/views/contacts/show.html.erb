@@ -1,0 +1,14 @@
+<h1>Contact Information</h1>
+
+<h2><%= @contact.first_name %></h2>
+<h2><%= @contact.last_name %></h2>
+<h2><%= @contact.email %></h2>
+<h2><%= @contact.phone_number %></h2>
+<h5><%= @contact.friendly_updated_at %></h5>
+
+<a href="/contacts">Home</a>
+<a class="btn btn-info" href="/contacts/<%= {@contact.id} %>/edit">Edit Contact</a>
+
+<%= form_tag "/recipes/#{@recipe.id}", method: :delete do%>
+  <input class="btn btn-danger" type="submit" value="Delete Contact">
+<% end %>
