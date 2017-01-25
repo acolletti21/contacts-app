@@ -10,9 +10,11 @@ class ContactsController < ApplicationController
   def create
     @contact = Contact.new(
                           first_name: params[:first_name],
+                          middle_name: params[:middle_name],
                           last_name: params[:last_name],
                           email: params[:email],
-                          phone_number: params[:phone_number]
+                          phone_number: params[:phone_number],
+                          bio: params[:bio]
                           )
     @contact.save
   end
@@ -27,12 +29,17 @@ class ContactsController < ApplicationController
 
   def update
     @contact = Contact.find(params[:id])
-    @contact.first_name = params[:first_name]
-    @contact.last_name = params[:last_name]
-    @contacts.email = params[:email]
-    @contacts.phone_number = params[:phone_number]
+    @contact.assign_attributes(
+                              first_name: params[:first_name],
+                              middle_name: params[:middle_name],
+                              last_name: params[:last_name],
+                              email: params[:email],
+                              phone_number: params[:phone_number],
+                              bio: params[:bio]
+                              )
 
     @contact.save
+    redirect_to "/contacts/#{@contact.id}"
   end
 
   def destroy

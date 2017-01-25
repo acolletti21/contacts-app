@@ -2,13 +2,17 @@
 
 <h2><%= @contact.first_name %></h2>
 <h2><%= @contact.last_name %></h2>
+<h2><%= @contact.full_name %></h2>
+<h2><%= @contact.middle_name %></h2>
 <h2><%= @contact.email %></h2>
 <h2><%= @contact.phone_number %></h2>
+<h2><%= @contact.bio %></h2>
 <h5><%= @contact.friendly_updated_at %></h5>
 
 <a href="/contacts">Home</a>
-<a class="btn btn-info" href="/contacts/<%= {@contact.id} %>/edit">Edit Contact</a>
 
-<%= form_tag "/recipes/#{@recipe.id}", method: :delete do%>
+<%= link_to "Edit Contact", "/contacts/#{@contact.id}/edit", class: "btn btn-info" %>
+
+<%= form_tag "/contacts/#{@contact.id}", method: :delete do%>
   <input class="btn btn-danger" type="submit" value="Delete Contact">
 <% end %>

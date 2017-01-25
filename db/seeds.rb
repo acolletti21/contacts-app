@@ -1,12 +1,5 @@
-100.times do 
- first_name = Faker::Name.first_name
- last_name = Faker::Name.last_name
-
-
-  contact = Contact.new(
-                        first_name: Faker::Name.first_name,
-                        last_name: Faker::Name.last_name,
-                        email: Faker::Internet.free_email(Faker::Name.first_name),
-                        phone_number: Faker::PhoneNumber.phone_number)
-  contact.save
-end
+Contact.create!([
+  {first_name: "John", last_name: "Doe", email: "jdawg2017@hotmail.com", phone_number: "3128712017", middle_name: nil, bio: nil},
+  {first_name: "Mike", last_name: "Jones", email: "whereami123@yahoo.com", phone_number: "7738558855", middle_name: nil, bio: nil},
+  {first_name: nil, last_name: nil, email: "jennyjennay@gmail.com", phone_number: "558675309", middle_name: nil, bio: "Jenny dont change her number"}
+])
