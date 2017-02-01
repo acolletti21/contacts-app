@@ -9,10 +9,11 @@
 <h2><%= @contact.bio %></h2>
 <h5><%= @contact.friendly_updated_at %></h5>
 
+<div>
 <a href="/contacts">Home</a>
+</div>
 
 <%= link_to "Edit Contact", "/contacts/#{@contact.id}/edit", class: "btn btn-info" %>
 
-<%= form_tag "/contacts/#{@contact.id}", method: :delete do%>
-  <input class="btn btn-danger" type="submit" value="Delete Contact">
-<% end %>
+<%= link_to "Delete", "/contacts/#{@contact.id}", method: :delete, class: "btn btn-danger"%>
+  
