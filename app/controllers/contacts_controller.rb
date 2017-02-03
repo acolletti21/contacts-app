@@ -1,7 +1,14 @@
 class ContactsController < ApplicationController
 
   def index
-    @contacts = Contact.all
+    if current_user
+      @contacts = current_user.contacts
+      #this makes it so the person who's logged in can only see their own contacts
+      render "index.html.erb"
+    else 
+      flash[:warning] = "You must be logged in to see this page"
+      redirect_to '/login'
+    end
   end
 
   def new
@@ -14,7 +21,8 @@ class ContactsController < ApplicationController
                           last_name: params[:last_name],
                           email: params[:email],
                           phone_number: params[:phone_number],
-                          bio: params[:bio]
+                          bio: params[:bio],
+                          user_id: current_user.id
                           )
     @contact.save
   end
