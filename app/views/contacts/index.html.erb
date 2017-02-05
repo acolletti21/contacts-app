@@ -3,7 +3,7 @@
 <div>
 <% @contacts.each do |contact| %>
  <h2>Name: <a href="/contacts/<%= contact.id %>"><%= contact.first_name %></a> <%= contact.last_name %></h2>
- <h5>full:<%= contact.full_name%></h5>
+ <h5>full: <%= contact.full_name%></h5>
  <h2>Email: <%= contact.email %></h2>
  <h2>Phone: <%= contact.country_code %></h2>
  <h5>Bio: <%= contact.bio %></h5>
