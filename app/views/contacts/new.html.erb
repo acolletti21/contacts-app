@@ -1,31 +1,44 @@
 <h1>New Contact</h1>
-
-<%= form_tag "/contacts", method: :post do %>
-
-<div> 
-  First Name: <input type="text" name="first_name">
-</div>
-
-<div> 
-  Middle Name: <input type="text" name="middle_name">
-</div>
-
-<div> 
-  Last Name: <input type="text" name="last_name">
-</div>
-
-<div> 
-  Email: <input type="text" name="email">
-</div>
-
-<div> 
-  Phone: <input type="text" name="phone_number">
-</div>
-
-<div> 
-  Bio: <input type="text" name="bio">
-</div>
-
-<input type="submit" value="sumbmit changes">
-
+<%= form_tag "/contacts", method: :post, class: "form-horizontal" do %>
+  <div class="form-group">
+    <%= label_tag :first_name, "First Name", class: "col-sm-2 control-label" %>
+    <div class="col-sm-4">
+      <%= text_field_tag :first_name, nil, class: "form-control" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= label_tag :middle_name, "Middle Name", class: "col-sm-2 control-label" %>
+    <div class="col-sm-4">
+      <%= text_field_tag :middle_name, nil, class: "form-control" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= label_tag :last_name, "Last Name", class: "col-sm-2 control-label" %>
+    <div class="col-sm-4">
+      <%= text_field_tag :last_name, nil, class: "form-control" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= label_tag :email, "Email", class: "col-sm-2 control-label" %>
+    <div class="col-sm-4">
+      <%= text_field_tag :email, nil, class: "form-control" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= label_tag :phone_number, "Phone Number", class: "col-sm-2 control-label" %>
+    <div class="col-sm-4">
+      <%= text_field_tag :phone_number, nil, class: "form-control" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= label_tag :bio, "Bio", class: "col-sm-2 control-label" %>
+    <div class="col-sm-4">
+      <%= text_area_tag :bio, nil, class: "form-control" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-4">
+      <%= submit_tag "Create Contact", class: "btn btn-default" %>
+    </div>
+  </div>
 <% end %>
